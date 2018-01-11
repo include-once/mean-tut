@@ -7,20 +7,26 @@ import { MyButtonComponent } from './my-button/my-button.component';
 import { MyStoreService } from './my-store.service';
 import { RouterModule } from '@angular/router';
 import { PostsComponent } from './posts/posts.component';
+import { AuthorsComponent } from './authors/authors.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MyButtonComponent,
-    PostsComponent
+    PostsComponent,
+    AuthorsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([{
       path: 'posts',
       component: PostsComponent
-    }])
+    }, {
+      path: 'authors',
+      component: AuthorsComponent
+    }
+    ])
   ],
   providers: [
     MyStoreService
