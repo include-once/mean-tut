@@ -30,11 +30,10 @@ import { PostComponent } from './post/post.component';
         component: HomeComponent
     },{
         path: 'posts',
-        component: PostsComponent,
-        children: [{
-            path: ':id',
-            component: PostComponent
-         }]
+        component: PostsComponent
+    },{
+        path: 'posts/:id',
+        component: PostComponent
     }, {
       path: 'authors',
       component: AuthorsComponent
