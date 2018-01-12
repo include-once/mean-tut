@@ -6,42 +6,35 @@ import { AppComponent } from './app.component';
 import { MyButtonComponent } from './my-button/my-button.component';
 import { MyStoreService } from './my-store.service';
 import { RouterModule } from '@angular/router';
-import { PostsComponent } from './posts/posts.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PostComponent } from './post/post.component';
+import { PostsModule } from './posts/posts.module';
 
+
+const ROUTES = [{
+  path: '',
+  component: HomeComponent
+},{
+  path: 'authors',
+  component: AuthorsComponent
+},{
+  path: '**',
+  component: PageNotFoundComponent
+}];
 
 @NgModule({
   declarations: [
     AppComponent,
     MyButtonComponent,
-    PostsComponent,
     AuthorsComponent,
     HomeComponent,
     PageNotFoundComponent,
-    PostComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([{
-        path: '',
-        component: HomeComponent
-    },{
-        path: 'posts',
-        component: PostsComponent
-    },{
-        path: 'posts/:id',
-        component: PostComponent
-    }, {
-      path: 'authors',
-      component: AuthorsComponent
-    },{
-      path: '**',
-      component: PageNotFoundComponent
-    }
-    ])
+    RouterModule.forRoot(ROUTES),
+    PostsModule
   ],
   providers: [
     MyStoreService
