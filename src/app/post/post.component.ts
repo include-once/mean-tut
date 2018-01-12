@@ -13,7 +13,7 @@ export class PostComponent implements OnInit {
         params => {
           this.postID = parseInt(params['id'], 10);
           if(isNaN(this.postID)){
-            this.router.navigateByUrl('/404');
+            this.router.navigateByUrl('/404', { skipLocationChange: true } );
           }
         }
     );
